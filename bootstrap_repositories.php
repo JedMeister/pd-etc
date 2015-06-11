@@ -26,18 +26,20 @@
  */
 defined('AJXP_EXEC') or die( 'Access not allowed');
 
-$REPOSITORIES[0] = array(
-    "DISPLAY"		=>	"Default Files",
+$REPOSITORIES["smb_storage"] = array(
+    "DISPLAY"		=>	"storage",
     "DISPLAY_ID"    =>  430,
     "DESCRIPTION_ID"=>  475,
-    "AJXP_SLUG"		=>  "default",
-    "DRIVER"		=>	"fs",
+    "AJXP_SLUG"		=>  "smb-storage",
+    "DRIVER"		=>	"smb",
     "DRIVER_OPTIONS"=> array(
-        "PATH"			=>	"AJXP_DATA_PATH/files",
-        "CREATE"		=>	true,
+        "HOST"          => "127.0.0.1",
+        "PATH"			=>	"storage",
         "RECYCLE_BIN" 	=> 	'recycle_bin',
-        "CHMOD_VALUE"   =>  '0600',
-        "DEFAULT_RIGHTS"=>  "",
+        "CHMOD_VALUE"   =>  '0644',
+        "USER"          => "",
+        "PASS"          => "",
+        "DEFAULT_RIGHTS"=>  "rw",
         "PAGINATION_THRESHOLD" => 500,
         "PAGINATION_NUMBER" => 200,
         "META_SOURCES"		=> array(
@@ -65,17 +67,19 @@ $REPOSITORIES[0] = array(
 
 );
 
-$REPOSITORIES[1] = array(
-    "DISPLAY"		=>	"My Files",
+$REPOSITORIES["smb-home"] = array(
+    "DISPLAY"		=>	"home",
     "DISPLAY_ID"    =>  432,
     "DESCRIPTION_ID"=>  476,
-    "AJXP_SLUG"		=>  "my-files",
-    "DRIVER"		=>	"fs",
+    "AJXP_SLUG"		=>  "smb-home",
+    "DRIVER"		=>	"smb",
     "DRIVER_OPTIONS"=> array(
-        "PATH"			=>	"AJXP_DATA_PATH/personal/AJXP_USER",
-        "CREATE"		=>	true,
+        "HOST"          => "127.0.0.1",
+        "PATH"			=>	"homes",
+        "CHMOD_VALUE"   =>  '0640',
+        "USER"          => "",
+        "PASS"          => "",
         "RECYCLE_BIN" 	=> 	'recycle_bin',
-        "CHMOD_VALUE"   =>  '0600',
         "DEFAULT_RIGHTS"=>  "rw",
         "PAGINATION_THRESHOLD" => 500,
         "PAGINATION_NUMBER" => 200,
